@@ -15,10 +15,11 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content=='exit':
-        await client.logout()
-    elif message.content == 'hello':
-        await message.channel.send('Hello World.')
+    if message.content=='-saluda' and message.channel=='#general'
+        await message.channel.send('Hola, soy el KoalaBot. Me ha programado OneKoala para relizar funciones útiles y graciosas y tenerlas todas en un único bot.')
+    elif message.channel!='#general':
+        await message.channel.send('No te has leído las normas? Sólo puedes utilizarme en el canal de comandos imonekSmile')
+
 
 client.run(TOKEN)
 
