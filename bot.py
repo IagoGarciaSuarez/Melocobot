@@ -1,7 +1,6 @@
 # bot.py
 import os
 import discord
-import rpgbot
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -9,30 +8,22 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('DISCORD_GUILD')
 
-client = discord.Client()
-
-
 bot = commands.Bot(command_prefix = '-')
-channel = 'bot-commands'
+channel = None
 
-@client.event
-async def on_ready():
-    print(f'{client.user} has connected to Discord!')
 
-@client.event
-async def on_message(message):
-    if message.content=='-saluda' and message.channel.name=='general':
-        await message.channel.send('Hola, soy el KoalaBot. Me ha programado OneKoala para relizar funciones útiles y graciosas' +
-        'y tenerlas todas en un único bot.')
-    elif message.content=='-saluda' and message.channel.name!='general':
-        await message.channel.send('No te has leído las normas? Sólo puedes utilizarme en el canal de comandos imonekSmile Este canal es: ' + message.channel.name)
-    elif message.content=='-exit':
-        await client.logout()
-
-@bot.command(name = 'rpgbotstart')
-async def rpgbotgame(message):
+@bot.command(name='test')
+async def test(ctx):
     
+    await channel.send('prueba')
 
 
-client.run(TOKEN)
+@bot.event
+async def on_ready():
+    #channel = discord.utils.get(ctx.guild.channels, name='bot-commands')
+    #channel.send('Listo para funcionar. Vuestros deseos son órdenes ( ° ͜ʖ °)')
+    for g in bot.get_all_channels():
+        print('Channel: {}\tID: {}'.format(g.name, g.id))
+    await bot.logout()
+bot.run(TOKEN)
 
