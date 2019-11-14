@@ -3,7 +3,7 @@ import os
 prefix = '%'
 
 def usrDir(destination):
-    return os.path.join('BotPG_Users', f'{destination}')
+    return os.path.join('BotPG', 'BotPG_Users', f'{destination}')
 
 def gameStart(player_name, user_id):
     pjExiste = [1, f'''

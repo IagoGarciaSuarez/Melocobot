@@ -1,7 +1,7 @@
 # bot.py
 import os
 import discord
-import Game_BotPG
+from BotPG import Game_BotPG
 from discord.ext import commands
 from dotenv import load_dotenv
 
@@ -40,12 +40,10 @@ async def botpg(ctx, *arg):
         try:
             await botChannel.send('Escribe el nombre de tu personaje.')
             nombrePj = await bot.wait_for('message', check=check(ctx.author), timeout = 10)
+            
         
         except Exception:
             await botChannel.send(f'<@{ctx.author.id}> No has escrito nada en el nombre.')
-        
-        test = Game_BotPG.charCreation(nombrePj.content)
-        await botChannel.send(test)
 
         
 
