@@ -5,7 +5,7 @@ class Weapon():
         "Croquete": 0
         "Arma de hierro": 1
         "Masamune": 2
-        "Sierrita": 2
+        "Sierrita": 2**
         "Zorrita": 3
         "Bicaya": 5
         "Takumi": 6
@@ -19,11 +19,12 @@ class Weapon():
                 Cada turno tiene una probabilidad del 30% de aumentar su daño base en 20.
         Pierdoframeslpm: El pibe enemigo pierde frames y no logra realizar su ataque correctamente.
                 Posibilidad del 20% de no recibir daño del ataque enemigo.'''
+
     effectValue = {
         "Croquete": 20
-        "Framedrop": 0
+        "Framedrop": 20
     }
-    
+
     def __init__(self, name):
         self._name = name
         self._baseDmg = dmgDict[name]
@@ -37,7 +38,7 @@ class Weapon():
         self._bonusDmg += dmg
 
     def getDamage(self):
-        damage = self._baseDmg + self.get*self._quality.getBonusDmg() + self._bonusDmg
+        damage = self._baseDmg + self._baseDmg*self._quality.getQualityDmg() + self._bonusDmg
         if (self.getName == "Croquete"):
-            damage += effectValue["Croquete"] + effectValue["Croquete"]*self._quality.getBonusDmg
+            damage += effectValue["Croquete"] + effectValue["Croquete"]*self._quality.getQualityDmg
         return damage

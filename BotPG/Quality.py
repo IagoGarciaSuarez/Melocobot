@@ -1,7 +1,7 @@
 import numpy
 
 class Quality():
-    qualityDmgDict = {
+    qualityBonusDict = {
         "Común": 0
         "Rara": 0.05
         "Épica": 0.1
@@ -24,7 +24,7 @@ class Quality():
 
     def __init__(self):
         self._name = qualityDict[numpy.random.choice(numpy.arange(1,len(qualityDict)+1), p=probabilities()])]
-        self._qualityDmg = qualityDmgDict[name]
+        self._qualityBonus = qualityBonusDict[name]
 
     def probabilities():
         a = []
@@ -32,6 +32,6 @@ class Quality():
             a.append(qualityProb[q])
         return a
 
-    def getQualityDmg():
-        return self._bonus
+    def getQualityBonus():
+        return self._qualityBonus
 
