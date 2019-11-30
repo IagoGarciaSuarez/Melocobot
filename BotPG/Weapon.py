@@ -1,16 +1,16 @@
-from Quality import Quality
+from BotPG import Quality
 
-class Weapon():
+class Weapon:
     dmgDict = {
-        "Croquete": 0
-        "Arma de hierro": 1
-        "Masamune": 2
-        "Sierrita": 2**
-        "Zorrita": 3
-        "Bicaya": 5
-        "Takumi": 6
-        "Framedrop": 8
-        "Boyuguei": 9
+        "Croquete": 0,
+        "Arma de hierro": 1,
+        "Masamune": 2,
+        "Sierrita": 2,
+        "Zorrita": 3,
+        "Bicaya": 5,
+        "Takumi": 6,
+        "Framedrop": 8,
+        "Boyuguei": 9,
         "Leyenevedaya": 10
     }
 
@@ -21,20 +21,20 @@ class Weapon():
                 Posibilidad del 20% de no recibir daño del ataque enemigo.'''
 
     effectValue = {
-        "Croquete": 20
+        "Croquete": 20,
         "Framedrop": 20
     }
 
     def __init__(self, name):
         self._name = name
         self._baseDmg = dmgDict[name]
-        self._quality = Quality(qualityDict[name])
+        self._quality = Quality(Quality.qualityDict[name])
         self._bonusDmg = 0
 
-    def getName():
+    def getName(self):
         return self._name
 
-    def addDmg(dmg):
+    def addDmg(self, dmg):
         self._bonusDmg += dmg
 
     def getDamage(self):
