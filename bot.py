@@ -21,13 +21,6 @@ def check(author):
         return True 
     return inner_check
 
-def confirm(ans):
-    if lower(ans) == 's':
-        return 1
-    
-    if lower(ans) == 'n':
-        return 0
-
 @bot.command(name='botpg')
 async def botpg(ctx, *arg):
 
@@ -40,9 +33,10 @@ async def botpg(ctx, *arg):
         try:
             await botChannel.send('Escribe el nombre de tu personaje.')
             nombrePj = await bot.wait_for('message', check=check(ctx.author), timeout = 10)
-            
+            char = Game_BotPG.charCreation(nombrePj.content)
+            await botChannel.send(char.__str__)
         
-        except Exception:
+        except TimeoutError:
             await botChannel.send(f'<@{ctx.author.id}> No has escrito nada en el nombre.')
 
         

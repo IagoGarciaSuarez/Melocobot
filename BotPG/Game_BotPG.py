@@ -1,4 +1,5 @@
 import os
+from BotPG import Character
 
 prefix = '%'
 
@@ -20,6 +21,7 @@ def gameStart(player_name, user_id):
     if (os.path.isdir(user_directory) and numOfChars):
         return pjExiste
 
+
     elif (not os.path.isdir(user_directory)):
         os.mkdir(user_directory)
         return pjNoExiste
@@ -28,5 +30,8 @@ def gameStart(player_name, user_id):
         return pjNoExiste
 
 def charCreation(char_name):
-    s = 'El personaje se llamará {}.'.format(char_name)
-    return s
+    char = Character.Character(char_name)
+    f = open(f'{char_name}.json', 'w+')
+    f.write(char.__str__())
+    f.close()
+    return char

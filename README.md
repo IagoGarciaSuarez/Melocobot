@@ -25,3 +25,15 @@ _Log:_
     Arreglados errores en los diccionarios y terminada la implementacion de Armor.py. 
     Cambios en la clase Character.py para que el constructor coja siempre los datos. Adaptada para leer de un ficher json para personajes ya creados.
     Cambios en la estética del README.md. Las fechas van entre 4 "=".
+
+    ====1/12/2019====
+    Estructura de los json del personaje:
+        Nombre del archivo = nombre del personaje
+            {"Level": [<lvl>, <exp>],
+            "Money": <dinero>,
+            "Stats": [<HP>],
+            "Weapon": [<Nombre del arma>, <calidad arma>],
+            "Armor": [<Nombre de la armadura>, <calidad armadura>]}
+    Importante: Buscar algoritmo para calcular la experiencia por nivel igual que la experiencia que den los enemigos según su nivel. ¿Experiencia incrementativa o estática?
+    Se crea el archivo .json para el personaje pero no se escribe en él.
+    Arreglados muchos bugs y errores de implementación.

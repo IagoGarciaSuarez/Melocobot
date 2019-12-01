@@ -23,15 +23,17 @@ class Quality:
     }
 
     def __init__(self):
-        self._name = qualityDict[numpy.random.choice(numpy.arange(1,len(qualityDict)+1), p=probabilities()])]
-        self._qualityBonus = qualityBonusDict[_name]
+        self._name = self.qualityDict[numpy.random.choice(numpy.arange(1,len(self.qualityDict)+1), p=self.probabilities())]
+        self._qualityBonus = self.qualityBonusDict[self._name]
 
-    def probabilities(self):
-        a = []
-        for q in qualityProb:
-            a.append(qualityProb[q])
-        return a
+    def getName(self):
+        return self._name
 
     def getQualityBonus(self):
         return self._qualityBonus
 
+    def probabilities(self):
+        a = []
+        for q in self.qualityProb:
+            a.append(self.qualityProb[q])
+        return a

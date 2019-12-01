@@ -25,20 +25,26 @@ class Weapon:
         "Framedrop": 20
     }
 
-    def __init__(self, name):
+    def __init__(self, name, quality=Quality.Quality()):
         self._name = name
-        self._baseDmg = dmgDict[name]
-        self._quality = Quality(Quality.qualityDict[name])
+        self._baseDmg = self.dmgDict[name]
+        if name == 'Arma de hierro':
+            self._quality = "Común"
+        else:
+            self._quality = quality
         self._bonusDmg = 0
 
     def getName(self):
         return self._name
 
+    def getQuality(self):
+        return self._quality
+
     def addDmg(self, dmg):
         self._bonusDmg += dmg
 
     def getDamage(self):
-        damage = self._baseDmg + self._baseDmg*self._quality.getQualityDmg() + self._bonusDmg
+        damage = self._baseDmg + self._baseDmg*self._quality.getQualityBonus() + self._bonusDmg
         if (self.getName == "Croquete"):
-            damage += effectValue["Croquete"] + effectValue["Croquete"]*self._quality.getQualityDmg
+            damage += self.effectValue["Croquete"] + self.effectValue["Croquete"]*self._quality.getQualityBonus
         return damage

@@ -15,10 +15,13 @@ class Armor:
     }
     
 
-    def __init__(self, name):
+    def __init__(self, name, quality = Quality.Quality()):
         self._name = name
-        self._baseArmor = armorDict[name]
-        self._quality = Quality(Quality.qualityDict[name])
+        self._baseArmor = self.armorDict[name]
+        if name == 'Armadura de hierro':
+            self._quality = "Común"
+        else:
+            self._quality = quality
         self._bonusArmor = 0
 
     def addArmor(self, armor):
@@ -28,8 +31,11 @@ class Armor:
         armor = self._baseArmor + self.getArmor*self._quality.getQualityDmg() + self._bonusArmor
         return armor
 
+    def getQuality(self):
+        return self._quality
+
     def getName(self):
         return self._name
 
     def getDefense(self):
-        return self._defense
+        return self._baseArmor
